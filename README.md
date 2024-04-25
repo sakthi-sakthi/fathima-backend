@@ -7,7 +7,7 @@
 - Open the terminal screen and paste the code below and run it.
 
   ```
-  git clone https://github.com/Muniraj132/lasad-benilde-centre.git
+  git clone https://github.com/sakthi-sakthi/fathima-backend.git
   ```
 ## Installation
 
