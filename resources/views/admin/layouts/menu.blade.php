@@ -42,8 +42,29 @@
               <p>{{ __('main.Slides') }}</p>
             </a>
           </li>
-          <li class="nav-item has-treeview @if(Request::segment(2)=="resource" || Request::segment(3)=="room") menu-open @endif">
-            <a href="{{ route('admin.resource.index') }}" class="nav-link @if(Request::segment(2)=="resource" ||  Request::segment(3)=="room") active @endif">
+          <li class="nav-item">
+            <a href="#" class="nav-link @if(Request::segment(2)=="messages") active @endif">
+                <i class="fa fa-comments nav-icon"></i>
+              <p>{{ __('Messages') }}</p>
+              <i class="right fas fa-angle-left"></i>
+            </a>
+            <ul class="nav nav-treeview" style="@if(Request::segment(2)=="messages") display:block; @endif">
+              <li class="nav-item">
+                <a href="{{ route('admin.messages.index') }}" class="nav-link @if(Request::segment(2)=="messages" && Request::segment(3)!="create") active @endif">
+                    <ion-icon name="return-down-forward-outline"></ion-icon>
+                    <p>{{ __('All Messages') }}</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.messages.create') }}" class="nav-link @if(Request::segment(2)=="messages" && Request::segment(3)=="create") active @endif">
+                    <ion-icon name="return-down-forward-outline"></ion-icon>
+                    <p>{{ __('Add Messages') }}</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview @if(Request::segment(2)=="resource" || Request::segment(3)=="news") menu-open @endif">
+            <a href="{{ route('admin.resource.index') }}" class="nav-link @if(Request::segment(2)=="resource" ||  Request::segment(3)=="news") active @endif">
               <i class="fas fa-calendar nav-icon"></i>
                 <p>
                     {{ __('main.resources') }}
@@ -52,7 +73,7 @@
             </a>
             <ul class="nav nav-treeview" style="@if(Request::segment(2)=="resource") display:block; @endif">
               <li class="nav-item">
-                <a href="{{ route('admin.room.category') }}" class="nav-link @if(Request::segment(3)=="room" && Request::segment(2)=="category") active @endif">
+                <a href="{{ route('admin.room.category') }}" class="nav-link @if(Request::segment(3)=="news" && Request::segment(2)=="category") active @endif">
                   <ion-icon name="return-down-forward-outline"></ion-icon>
                   <p>{{ __('main.Categories') }}</p>
                 </a>

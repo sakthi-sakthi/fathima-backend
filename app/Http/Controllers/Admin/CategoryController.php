@@ -126,4 +126,9 @@ class CategoryController extends Controller
             return redirect()->back()->with(['type' => 'error', 'message' => 'The category could not be destroyed.']);
         }
     }
+
+    public function show($id)
+    {
+        return redirect()->route('admin.category.index');
+    }
 }

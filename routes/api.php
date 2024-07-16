@@ -39,5 +39,4 @@ Route::get('/get/messages/{id}',[ApiController::class,'getmessageslist']);
 Route::get('/get/homepagee/sections',[HomeController::class,'gethomepagedetails']);
 Route::get('get/teammembers',[ApisubController::class,'getteam']);
 Route::get('get/team/{id}',[ApisubController::class,'getteambyid']);
-// Booking room
-Route::get('/booking/room', [HomeController::class, 'Roomfacilities']);
+Route::get('/get/messages/{id}',[ApiController::class,'getmessagedata']);

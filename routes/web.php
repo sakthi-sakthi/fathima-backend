@@ -26,10 +26,10 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
 
     Route::get('/category/gallery/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('gallery.category');
     Route::get('/category/gallery/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('gallery.category.create');
-    Route::get('/category/room/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('room.category');
+    Route::get('/category/news/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('room.category');
     Route::get('/category/message/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('message.category');
     Route::get('/category/message/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('message.category.create');
-    Route::get('/category/room/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('room.category.create');
+    Route::get('/category/news/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('room.category.create');
     Route::get('/category/services/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('services.category');
     Route::get('/category/services/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('services.category.create');
     Route::get('/category/update/', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('update.category');
@@ -166,6 +166,10 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
  Route::get('/ourteams/recover/{id}',[OurTeamController::class,'recover'])->name('ourteams.recover');
  Route::post('/ourteams/updateorder',[OurTeamController::class,'updateorder'])->name('ourteams.updateorder');
 
+ // Bishop Messages Routes starts here
+ Route::resource('/messages', 'App\Http\Controllers\Admin\MessageController');
+ Route::get('/switchstatus', [App\Http\Controllers\Admin\MessageController::class, 'switch'])->name('messages.dataswitch');
+ 
 });
 
 

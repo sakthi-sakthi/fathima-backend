@@ -18,6 +18,7 @@ use App\Models\Socialmedia;
 use App\Models\Media;
 use App\Models\Page;
 use App\Models\Image;
+use App\Models\Message;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
 
@@ -427,5 +428,32 @@ class ApiController extends Controller
         ]);
 
     }
+
+    public function getmessagedata($id) {
+        $messages = Message::where('category_id', $id)
+            ->where('status', 1)
+            ->select('id', 'title', 'content', 'activitydate', 'category_id', 'file', 'status')
+            ->orderBy('id', 'desc')
+            ->get();
+        $data = [];
+        foreach ($messages as $key => $message) {
+            $filePath = !empty($message->file) ? asset('uploads/' . $message->file) : null;
+            $data[] = [
+                'id' => $message->id,
+                'title' => $message->title,
+                'content' => $message->content,
+                'activitydate' => $message->activitydate,
+                'category_id' => $message->category_id,
+                'file' => $filePath,
+                'status' => $message->status,
+            ];
+        }
+        return response()->json([
+            'success' => true,
+            'count' => count($data),
+            'message' => 'Data retrieved successfully',
+            'data' => $data,
+        ]);
+    } 
 
 }
