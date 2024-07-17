@@ -169,6 +169,9 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
  // Bishop Messages Routes starts here
  Route::resource('/messages', 'App\Http\Controllers\Admin\MessageController');
  Route::get('/switchstatus', [App\Http\Controllers\Admin\MessageController::class, 'switch'])->name('messages.dataswitch');
+
+//  Mass Timings Routes starts here
+Route::resource('/events', 'App\Http\Controllers\Admin\EventController');
  
 });
 

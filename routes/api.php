@@ -40,3 +40,4 @@ Route::get('/get/homepagee/sections',[HomeController::class,'gethomepagedetails'
 Route::get('get/teammembers',[ApisubController::class,'getteam']);
 Route::get('get/team/{id}',[ApisubController::class,'getteambyid']);
 Route::get('/get/messages/{id}',[ApiController::class,'getmessagedata']);
+Route::get('/get/masstime',[ApiController::class,'geteventdata']);

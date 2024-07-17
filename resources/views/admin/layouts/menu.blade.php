@@ -43,6 +43,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('admin.events.create') }}" class="nav-link @if(Request::segment(2)=="events") active @endif">
+                <i class="fa fa-calendar nav-icon"></i>
+              <p>{{ __('Mass Calendar') }}</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link @if(Request::segment(2)=="messages") active @endif">
                 <i class="fa fa-comments nav-icon"></i>
               <p>{{ __('Messages') }}</p>

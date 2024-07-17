@@ -18,6 +18,7 @@ use App\Models\Socialmedia;
 use App\Models\Media;
 use App\Models\Page;
 use App\Models\Image;
+use App\Models\Event;
 use App\Models\Message;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
@@ -455,5 +456,18 @@ class ApiController extends Controller
             'data' => $data,
         ]);
     } 
+
+    public function geteventdata() {
+        return response()->json([
+            'success' => true,
+            'count' => Event::count(),
+            'message' => 'Data retrieved successfully',
+            'data' => Event::all(['id','startdate','first_friday'])->map(function ($event) {
+            $event->startdate = \Carbon\Carbon::parse($event->startdate)->format('m/d/Y h:i A');
+            return $event;
+        }),
+
+        ]);
+    }
 
 }

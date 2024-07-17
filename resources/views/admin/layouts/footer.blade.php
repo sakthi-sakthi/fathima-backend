@@ -7,7 +7,7 @@
     </div>
     <!-- Default to the left -->
     <center>
-    <strong>{{ __('main.Copyright') }} &copy; {{ date('Y') }} <a href="/admin/home">Welcome To Benilde Resource Centre  </a>.</strong> {{ __('main.All rights reserved.') }}
+    <strong>{{ __('main.Copyright') }} &copy; {{ date('Y') }} <a href="/admin/home">Welcome To Our Lady of Fathima Shrine  </a>.</strong> {{ __('main.All rights reserved.') }}
 </center>
     </footer>
 </div>
